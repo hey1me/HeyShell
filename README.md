@@ -84,7 +84,7 @@ brew install readline bubblewrap
 
 ```bash
 git clone https://github.com/hey1me/HeyShell.git
-cd heyshell
+cd HeyShell
 gcc heyshell.c -o heyshell -lreadline -lncurses
 sudo mv heyshell /usr/local/bin/
 ```

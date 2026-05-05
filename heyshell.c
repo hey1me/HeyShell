@@ -183,7 +183,7 @@ void banner() {
     char desc[] =
         BOLD_CYN "HeyShell 1.0\n" RESET
         "Copyright (C) 2026 " YELLOW "Ooi Teng Qing - Hey1Me\n" RESET
-        "License GPLv3+: GNU GPL version 3 or later <" GRN "http://gnu.org/licenses/gpl.html" RESET ">.\n"
+        "License GPLv3 <" GRN "https://github.com/hey1me/HeyShell/blob/main/LICENSE" RESET ">.\n"
         "For help, type \"" YELLOW "help\".\n" RESET;
 
     printf("%s\n%s\n", title, desc);
