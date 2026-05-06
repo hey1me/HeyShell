@@ -124,7 +124,7 @@ objdump <file>    # Disassemble to Intel syntax
 
 ```bash
 ls, cat, echo, python, bash, man, readelf, nm, strace
-hexdump, base64, binwalk, cyclic, nc, ssh, r2
+hexdump, base64, binwalk, cyclic, nc, ssh, r2, frida, afl++
 ```
 
 ---

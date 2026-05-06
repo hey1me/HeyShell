@@ -110,7 +110,7 @@ int main(int argc, char *argv[]) {
             }
         }
         // The bash commands allowed to run directly in HeyShell with add in their additional arguments
-        else if (strncmp(command, "ls", 2) == 0 || strncmp(command, "lsd", 3) == 0 || strncmp(command, "cat", 3) == 0 || strncmp(command, "echo", 4) == 0 || strncmp(command, "python", 6) == 0 || strncmp(command, "bash", 4) == 0 || strncmp(command, "man", 3) == 0 || strncmp(command, "readelf", 7) == 0 || strncmp(command, "nm", 2) == 0 || strncmp(command, "strace", 6) == 0 || strncmp(command, "hexdump", 7) == 0 || strncmp(command, "base64", 6) == 0 || strncmp(command, "binwalk", 7) == 0 || strncmp(command, "nc", 2) == 0 || strncmp(command, "ssh", 3) == 0 || strncmp(command, "r2", 2) == 0 || strncmp(command, "radare2", 7) == 0) {
+        else if (strncmp(command, "ls", 2) == 0 || strncmp(command, "lsd", 3) == 0 || strncmp(command, "cat", 3) == 0 || strncmp(command, "echo", 4) == 0 || strncmp(command, "python", 6) == 0 || strncmp(command, "bash", 4) == 0 || strncmp(command, "man", 3) == 0 || strncmp(command, "readelf", 7) == 0 || strncmp(command, "nm", 2) == 0 || strncmp(command, "strace", 6) == 0 || strncmp(command, "hexdump", 7) == 0 || strncmp(command, "base64", 6) == 0 || strncmp(command, "binwalk", 7) == 0 || strncmp(command, "nc", 2) == 0 || strncmp(command, "ssh", 3) == 0 || strncmp(command, "r2", 2) == 0 || strncmp(command, "radare2", 7) == 0 || strncmp(command, "frida", 5) == 0 || strncmp(command, "afl-", 4) == 0) {
             if (sandbox_mode == 1) {
                 char bwrap_prefix[256];
                 get_bwrap_prefix(bwrap_prefix, sizeof(bwrap_prefix));
@@ -208,6 +208,8 @@ void help() {
         GRN "binwalk <...>" RESET "       -- Analyzes data for embedded file types\n"
         GRN "cyclic <...>" RESET  "       -- Cyclic pattern creator/finder\n"
         GRN "r2 <...>" RESET " / " GRN "radare2 <...>" RESET      "       -- Advanced command-line hexadecimal editor, disassembler and debugger\n"
+        GRN "frida <...>" RESET  "       -- Dynamic Analysis\n"
+        GRN "afl-<...> <...>" RESET  "       -- AFL++\n"
         YELLOW "\n---" RESET    " Security Commands(Auto run with your selected binary file) " YELLOW "---\n" RESET
         GRN "sandbox" RESET     "       -- Toggle 'Sandbox' Mode (Use Bubblewrap)\n"
         GRN "file" RESET        "       -- Determine the binary file type\n"
