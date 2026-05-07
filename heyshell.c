@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <readline/readline.h>
 #include <readline/history.h>
+#include <csptr/smart_ptr.h>
 
 /* COLORs */
 #define RED      "\x1B[31m"
@@ -28,6 +29,14 @@
 
 /* Global Sandbox Mode */
 int sandbox_mode = 0;
+
+void free_wrapper(void *ptr, void *meta) {
+    (void)meta;
+    free(ptr);
+}
+void simple_free(void *ptr) {
+    free(ptr);
+}
 
 /* Helper function to get bwrap prefix */
 void get_bwrap_prefix(char *buffer, size_t size) {
@@ -73,13 +82,14 @@ int main(int argc, char *argv[]) {
     }
 
     banner();
-    char *input;
     char fullCmd[102400];
     char prompt[256];
     for (int i = 0; i < 3; ) {
         // USER INPUT
         get_prompt(prompt, sizeof(prompt));
-        input = readline(prompt);
+        char *raw_input = readline(prompt);
+
+        __attribute__((cleanup(simple_free))) char *input = raw_input;
         if (input == NULL) break;
         if (*input) {
             add_history(input);
@@ -168,7 +178,6 @@ int main(int argc, char *argv[]) {
         else {
             printf("❌️ Undefined command: \"%s\". Try \"help\". \n", command);
         }
-        free(input);
     }
 }
 

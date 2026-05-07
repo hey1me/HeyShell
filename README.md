@@ -31,6 +31,9 @@ Whether you're analyzing binaries, debugging exploits, or solving CTF challenges
 - Toggle sandbox mode with a single `sandbox` command
 - Protects your host system while experimenting with malware samples or exploits
 
+### 📝 Automatic Memory Management
+- **libcsptr Integration** - Provides smart pointer capabilities for automatic cleanup
+
 ### 🛠️ Pre-integrated Security Tools
 
 | Category | Tools |
@@ -68,13 +71,13 @@ Install the required dependencies:
 ```bash
 # Debian/Ubuntu
 sudo apt-get update
-sudo apt-get install -y build-essential libreadline-dev libreadline8 bubblewrap
+sudo apt-get install -y build-essential libreadline-dev libreadline8 bubblewrap libcsptr
 
 # Fedora
-sudo dnf install gcc make readline-devel bubblewrap
+sudo dnf install gcc make readline-devel bubblewrap libcsptr
 
 # Arch Linux
-sudo pacman -S base-devel readline bubblewrap
+sudo pacman -S base-devel readline bubblewrap libcsptr
 
 # macOS (Homebrew)
 brew install readline bubblewrap
@@ -85,7 +88,7 @@ brew install readline bubblewrap
 ```bash
 git clone https://github.com/hey1me/HeyShell.git
 cd HeyShell
-gcc heyshell.c -o heyshell -lreadline -lncurses
+gcc heyshell.c -o heyshell -lcsptr -lreadline -lncurses
 sudo mv heyshell /usr/local/bin/
 ```
 
