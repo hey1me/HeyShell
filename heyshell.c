@@ -88,8 +88,7 @@ int main(int argc, char *argv[]) {
         // USER INPUT
         get_prompt(prompt, sizeof(prompt));
         char *raw_input = readline(prompt);
-
-        __attribute__((cleanup(simple_free))) char *input = raw_input;
+        char *input = raw_input;
         if (input == NULL) break;
         if (*input) {
             add_history(input);
@@ -178,6 +177,7 @@ int main(int argc, char *argv[]) {
         else {
             printf("❌️ Undefined command: \"%s\". Try \"help\". \n", command);
         }
+        free(input);
     }
 }
 
