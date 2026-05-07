@@ -80,7 +80,7 @@ sudo dnf install gcc make readline-devel bubblewrap libcsptr
 sudo pacman -S base-devel readline bubblewrap libcsptr
 
 # macOS (Homebrew)
-brew install readline bubblewrap
+brew install readline bubblewrap libcsptr
 ```
 
 ### Build HeyShell
