@@ -163,6 +163,17 @@ int main(int argc, char *argv[]) {
                 system(fullCmd);
             }
         }
+        else if (strcmp(command, "checksec") == 0) {
+            if (sandbox_mode == 1) {
+                char bwrap_prefix[256];
+                get_bwrap_prefix(bwrap_prefix, sizeof(bwrap_prefix));
+                snprintf(fullCmd, sizeof(fullCmd), "%s %s --file %s", bwrap_prefix, command, argv[1]);
+                system(fullCmd);
+            } else {
+                snprintf(fullCmd, sizeof(fullCmd), "%s --file %s", command, argv[1]);
+                system(fullCmd);
+            }
+        }
         else if (strcmp(command, "objdump") == 0) {
             if (sandbox_mode == 1) {
                 char bwrap_prefix[256];
